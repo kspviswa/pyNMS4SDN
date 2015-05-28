@@ -3,6 +3,7 @@ __author__ = 'venkat'
 
 from header import *
 from json_http_handler import *
+from snmpTrapGenerator import *
 
 
 class LinkTables:
@@ -33,6 +34,12 @@ class LinkTables:
 
     def send_trap(self):
         print("SNMP", self.check_snmp.get())
+        flag = self.check_snmp.get()
+        print("SNMP for ", flag)
+        if flag == 1:
+            print("inside trap")
+            trap = snmpTrapGenerator()
+            trap.fireTrap('Viswa is great')
         return
 
     def mradioselect(self):
